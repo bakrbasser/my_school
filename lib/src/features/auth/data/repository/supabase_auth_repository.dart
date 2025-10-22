@@ -35,4 +35,13 @@ class SupabaseAuthRepository implements AuthRepository {
       },
     );
   }
+
+  @override
+  String? getEmail() {
+    if (_client.auth.currentUser == null) {
+      return null;
+    } else {
+      return _client.auth.currentUser!.email;
+    }
+  }
 }

@@ -64,7 +64,13 @@ class EmptySearchField extends BaseException {
 
 //Auth Related Exceptions
 class InvalidEmail extends BaseException {
-  InvalidEmail([String msg = 'الايميل المدخل غير صالح يرجى ادخال ايميل صحيح'])
+  InvalidEmail([
+    String msg = 'البريد الكتروني المدخل غير صالح يرجى ادخال ايميل صحيح',
+  ]) : super(message: msg);
+}
+
+class UnAuthenticated extends BaseException {
+  UnAuthenticated([String msg = 'لا يوجد بريد الكتروني مسجل يرجى تسجيل الدخول'])
     : super(message: msg);
 }
 
