@@ -11,7 +11,7 @@ class SupabaseAuthRepository implements AuthRepository {
   SupabaseClient get client => _client;
 
   @override
-  Future<bool> isSignedIn() async {
+  bool isSignedIn() {
     return _client.auth.currentSession != null;
   }
 

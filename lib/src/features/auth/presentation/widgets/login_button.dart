@@ -27,6 +27,7 @@ class LoginButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
+        FocusScope.of(context).unfocus();
         if (formKey.currentState!.validate()) {
           context.read<AuthCubit>().signIn(
             email: emailController.text,

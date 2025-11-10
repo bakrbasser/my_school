@@ -74,6 +74,13 @@ class UnAuthenticated extends BaseException {
     : super(message: msg);
 }
 
+class IncorrectCredentials extends BaseException {
+  IncorrectCredentials([
+    String msg =
+        'بيانات الدخول غير صحيحة يرجى التحقق من البريد الالكتروني وكلمة المرور',
+  ]) : super(message: msg);
+}
+
 Exception mapToFailure(Object e) {
   if (e is SocketException || e is TimeoutException) {
     return NetworkException();
@@ -87,6 +94,8 @@ Exception mapToFailure(Object e) {
     return EmptySearchField();
   } else if (e is InvalidEmail) {
     return InvalidEmail();
+  } else if (e is AuthApiException) {
+    return IncorrectCredentials();
   }
   return BaseException(message: e.toString());
 }

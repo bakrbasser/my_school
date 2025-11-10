@@ -6,7 +6,7 @@ class IsSignedInUseCase {
   IsSignedInUseCase({required this.repository});
 
   /// Returns true if a user is currently signed in.
-  Future<bool> call() {
+  bool call() {
     return repository.isSignedIn();
   }
 }

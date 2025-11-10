@@ -1,3 +1,5 @@
+import 'package:my_school/src/core/presentation/year_to_arabic.dart';
+
 class Student {
   final int id;
   final DateTime createdAt;
@@ -6,8 +8,10 @@ class Student {
   final String parentId;
   final String location;
   final int? yearId;
-  final StudentStatus? status;
+  final String? status;
   final int? classId;
+
+  String get yearInArabic => yearToArabic(yearId);
 
   Student({
     required this.id,
@@ -21,5 +25,3 @@ class Student {
     required this.classId,
   });
 }
-
-enum StudentStatus { active, inactive, graduated }

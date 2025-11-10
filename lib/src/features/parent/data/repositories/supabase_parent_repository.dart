@@ -16,15 +16,13 @@ class SupabaseParentRepository implements ParentRepository {
   Parent get currentParent => _currentParent!;
 
   @override
-  Future<void> fetchParent() async {
-    final email = _supabaseClient.auth.currentUser?.email;
-
+  Future<void> fetchParent(String email) async {
     final response = await guardCall(
       call: () async {
         return await _supabaseClient
-            .from('parents')
+            .from('parent')
             .select()
-            .eq('email', email!)
+            .eq('email', email)
             .single();
       },
     );

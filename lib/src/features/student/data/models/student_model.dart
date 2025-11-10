@@ -22,12 +22,8 @@ class StudentModel extends Student {
       parentId: json['parent_id'] as String,
       location: json['location'] as String,
       yearId: json['year_id'] as int?,
-      status: json['status'] != null
-          ? StudentStatus.values.firstWhere(
-              (e) =>
-                  e.toString() == 'StudentStatus.' + (json['status'] as String),
-            )
-          : null,
+      status: json['status'] ?? '',
+
       classId: json['class_id'] as int?,
     );
   }
